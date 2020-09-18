@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!--xmlns = XML Name Space, th = Thymeleaf variable,
+"thymeleaf.org" = can be any text for dev. benefit -->
 <html xmlns:th = "thymeleaf.org">
     <head>
     <title>Technical Blog</title>
@@ -6,7 +8,8 @@
     <body>
         <h2>All Posts are listed below : </h2>
         <main>
-            <post th:each = "postObj : ${posts}">
+            <!--posts is the name tag iused by the Model object in getAllPosts Controller function-->
+            <post th:each = "postObj : ${posts}"><!--for each Post object in posts arraylist-->
                 <h4 th:text = "${postObj.title}"></h4>
                 <i>Posted on : </i>
                 <span th:text = "${postObj.date}"></span>
