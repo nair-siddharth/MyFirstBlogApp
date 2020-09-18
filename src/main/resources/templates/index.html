@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th = "thymeleaf.org">
+    <head>
+    <title>Technical Blog</title>
+    </head>
+    <body>
+        <h2>All Posts are listed below : </h2>
+        <main>
+            <post th:each = "postObj : ${posts}">
+                <h4 th:text = "${postObj.title}"></h4>
+                <i>Posted on : </i>
+                <span th:text = "${postObj.date}"></span>
+                <div>
+                    <p th:text = "${postObj.body}"></p>
+                </div>
+            </post>
+        </main>
+    </body>
+</html>
