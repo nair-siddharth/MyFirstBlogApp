@@ -6,11 +6,11 @@
     </head>
 
     <!--header is a thymeleaf tag-->
-    <!--"layout :: logged-out" - this tells thymeleaf to look for looged-out fragment and replace it with
-     the header tag below, Any html with th:fragment = "logged-out" in header tag will replace the
+    <!--"layout :: logged-in" - this tells thymeleaf to look for looged-in fragment and replace it with
+     the header tag below, Any html with th:fragment = "logged-in" in header tag will replace the
      header tag below. Check layout.html to get a clearer picture-->
     <!--below is an example of re-use-->
-    <header th:replace = "layout :: logged-out"></header>
+    <header th:replace = "layout :: logged-in"></header>
 
     <!--post1 is created in the HomeController class, getFirstPost() function, hashes
     "post1" with the Post Object returned by the Autowired PostService object-->

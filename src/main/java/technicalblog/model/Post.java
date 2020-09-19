@@ -1,4 +1,4 @@
-package technicalblog.Model;
+package technicalblog.model;
 
 import java.util.Date;
 

@@ -1,20 +1,15 @@
-package technicalblog.Controller;
+package technicalblog.service;
 
-import javafx.geometry.Pos;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import technicalblog.Model.*;
+import org.springframework.stereotype.Service;
+import technicalblog.model.Post;
 
 import java.util.ArrayList;
 
-@Controller
-public class HomeController {
+@Service
+public class PostService {
 
-    @RequestMapping("/")// home page
-    //@RequestMapping(value = "message", method = RequestMethod.GET)
-    public String getAllPosts(Model model){
+    public ArrayList<Post> getAllPosts(){
+        ArrayList<Post> posts = new ArrayList<Post>();
         // dummy Post object created and then returned, as an example
         Post post1 = new Post();
         post1.setTitle("How to change a light bulb");
@@ -31,13 +26,16 @@ public class HomeController {
         post3.setBody("Duh, cookies");
         post3.setDate(new java.util.Date());
 
-        ArrayList<Post> posts = new ArrayList<>();
+        Post post4 = new Post();
+        post4.setTitle("Who changed my nappy");
+        post4.setBody("Cookie monster");
+        post4.setDate(new java.util.Date());
+
         posts.add(post1);
         posts.add(post2);
         posts.add(post3);
+        posts.add(post4);
 
-        model.addAttribute("posts",posts);
-
-        return "index";
+        return posts;
     }
 }

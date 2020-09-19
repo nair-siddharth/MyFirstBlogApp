@@ -2,13 +2,20 @@
 <!--xmlns = XML Name Space, th = Thymeleaf variable,
 "thymeleaf.org" = can be any text for dev. benefit -->
 <html xmlns:th = "thymeleaf.org">
-    <head>
-    <title>Technical Blog</title>
+    <head th:replace = "layout :: site-head">
+        <title>Technical Blog</title>
     </head>
+
+    <!--header is a thymeleaf tag-->
+    <!--"layout :: logged-out" - this tells thymeleaf to look for looged-out fragment and replace it with
+     the header tag below, Any html with th:fragment = "logged-out" in header tag will replace the
+     header tag below. Check layout.html to get a clearer picture-->
+    <header th:replace = "layout :: logged-out"></header>
+
     <body>
         <h2>All Posts are listed below : </h2>
         <main>
-            <!--posts is the name tag iused by the Model object in getAllPosts Controller function-->
+            <!--posts is the name tag used by the Model object in getAllPosts HomeController function-->
             <post th:each = "postObj : ${posts}"><!--for each Post object in posts arraylist-->
                 <h4 th:text = "${postObj.title}"></h4>
                 <i>Posted on : </i>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="thymeleaf.org">
+
+    <!--this will replace the title wherever site-head is used,
+    read the comments below to understand how-->
+    <head th:fragment="site-head">
+        <!--<title>1st Steps Spring MVC</title>-->
+    </head>
+
+    <body>
+        <!--header is thymeleaf tag-->
+        <!--th:fragment = "logged-out" - this tells thymeleaf to use the enclosed html tags wherever
+        th:replace = "layout :: logged-out" is mentioned in another html template, within header tags
+        (check index.html to understand). This means that layout.html is not a standalone file, but holds
+        html FRAGMENTS to be included in other files. This is done to avoid repetitive HTML -->
+
+        <!--th:remove = "tag" - this removes the header tags from the final html file sent to client.
+        If you delete this part, the header tags will be kept in the final html, has no effect on result-->
+
+        <header th:fragment = "logged-out" th:remove = "tag">
+            <!--due to code re-use, all pages (index.html, index2.html automatically get updated-->
+            <!--
+            <a href = "users/login.html" th:href = "@{users/login}">Login</a>
+            <a href = "users/register.html" th:href = "@{users/register}">Register Here</a>
+            -->
+            <table border="4" cellpadding="2" cellspacing="2" width="100%">
+                <tr>
+                    <td width="50%">
+                        <a href = "users/login.html" th:href = "@{/users/login}">Login</a>
+                    </td>
+                    <td width="50%">
+                        <a href = "users/register.html" th:href = "@{/users/register}">Register Here</a>
+                    </td>
+                </tr>
+            </table>
+        </header>
+
+
+    <!--Same as above, but this following fragment is used once user is logged in-->
+        <header th:fragment="logged-in" th:remove="tag">
+            <header>
+                <!--Note that @annotation is read by Thymeleaf, and $annotation is ready by Spring-->
+                <form method="post" th:action = "@{/users/logout}">
+                    <input type="submit" value="Logout"/>
+                </form>
+            </header>
+        </header>
+
+    </body>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
