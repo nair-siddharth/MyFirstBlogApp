@@ -40,17 +40,30 @@
     <!--Same as above, but this following fragment is used once user is logged in-->
         <header th:fragment="logged-in" th:remove="tag">
             <header>
-                <!--Note that @annotation is read by Thymeleaf, and $annotation is ready by Spring-->
-                <form method="post" th:action = "@{/users/logout}">
-                    <input type="submit" value="Logout"/>
-                </form>
+                <!--Note that @annotation is read by Thymeleaf,
+                and $annotation is ready by Spring-->
+
+                <table border="4" cellpadding="2" cellspacing="2" width="100%">
+                    <tr>
+                        <td>
+                            <a href = "posts/create.html" th:href = "@{/posts/create}">Create Post</a>
+                        </td>
+                        <td>
+                            <form method="post" th:action = "@{/users/logout}">
+                                <input type="submit" value="Logout"/>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+
+                <!--form method="post" th:action = "@{/users/create}">
+                    <input type="submit" value="Create post"/>
+                </form-->
+
             </header>
         </header>
 
     </body>
-<head>
-    <title>Title</title>
-</head>
 <body>
 
 </body>

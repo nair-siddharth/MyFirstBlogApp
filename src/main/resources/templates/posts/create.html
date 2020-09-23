@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Create your post here</title>
+</head>
+<header th:replace = "layout :: logged-in"></header>
+<body>
+    <h3>Create Your Post - </h3>
+    <form method="post" th:object = "${Post}">
+        <label for="post">Post Title :</label>
+        <input type="text" id="post" name="title"/>
+        <br/><br/>
+        <label for="body">Password Body:</label>
+        <input type="text" id="body" name="body"/>
+        <input type="submit" value="Submit Post"/>
+    </form>
+</body>
+</html>

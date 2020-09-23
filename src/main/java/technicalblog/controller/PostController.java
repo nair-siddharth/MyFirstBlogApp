@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import technicalblog.model.Post;
 import technicalblog.service.PostService;
 
@@ -28,5 +29,25 @@ public class PostController {
 
         return "posts";
     }
+
+    @RequestMapping(value = "/maintenance", method =  RequestMethod.POST)
+    public String maintenance(){
+        return "maintenance";
+    }
+
+    @RequestMapping(value = "/posts/create")
+    public String createPost(){
+        System.out.println("create page open");
+        return "posts/create";
+        //return "redirect:/users/login";
+    }
+
+    @RequestMapping(value = "/posts/create", method = RequestMethod.POST)
+    public String submitPost(Post post){
+        postService.createPost(post);
+
+        return "redirect:/posts";
+    }
+
 
 }

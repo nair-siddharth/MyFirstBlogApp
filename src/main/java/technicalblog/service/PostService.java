@@ -38,4 +38,14 @@ public class PostService {
 
         return posts;
     }
+
+    public void createPost(Post post){
+        System.out.println("Post created - ");
+        post.setDate(new java.util.Date());
+
+        System.out.println("post.getDate() = " + post.getDate());
+        System.out.println("post.getTitle() = " + post.getTitle());
+        System.out.println("post.getBody() = " + post.getBody());
+    }
+
 }

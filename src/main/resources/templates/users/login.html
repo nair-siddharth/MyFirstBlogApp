@@ -10,11 +10,12 @@
 
 <h2>Please Login:</h2>
 
+<!--here, the input name value should match the User object's state variable names-->
 <form method="post" th:object="${User}">
     <label for="username">Username:</label>
-    <input type="text" id="username"/>
+    <input type="text" id="username" name="userName"/>
     <label for="password">Password:</label>
-    <input type="password" id="password"/>
+    <input type="password" id="password" name="password"/>
     <input type="submit" value="Login"/>
 </form>
 

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import technicalblog.model.*;
 import technicalblog.service.PostService;
 
@@ -42,8 +43,16 @@ public class HomeController {
 
         // addAttribute function hashes the text "post1" with the object posts.get(0), so that Spring
         // can simply use this object when it is referenced using the name post1. Check index2.html
-        model.addAttribute("post1",posts.get(0));
+        model.addAttribute("post1",posts.get( (int)( Math.random()*posts.size() ) ));
 
         return "index2";
+    }
+
+    @RequestMapping("/resp1")
+    @ResponseBody
+    //@RequestMapping(value = "message", method = RequestMethod.GET)
+    public PostService testResponseBody(){
+
+        return postService;
     }
 }
